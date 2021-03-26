@@ -1,11 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+  <PropertyGroup>
     <TargetFrameworks>net40;net45;netstandard2.0</TargetFrameworks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -13,14 +9,17 @@
     <Authors>AktivCo</Authors>
     <Description>Managed .NET wrapper for unmanaged Rutoken PKCS#11 libraries</Description>
     <Copyright>Copyright (c) 2017-2021 The RutokenPkcs11Interop Project</Copyright>
-    <PackageProjectUrl>https://github.com/pavelkhrulev/RutokenPkcs11Interop</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/pavelkhrulev/RutokenPkcs11Interop.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lo1ol/RutokenPkcs11Interop</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lo1ol/RutokenPkcs11Interop.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>pkcs pkcs11 security crypto cryptography smartcard hsm rutoken aktiv</PackageTags>
     <Company />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RootNamespace>Net.RutokenPkcs11Interop</RootNamespace>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -35,12 +34,12 @@
     <PackageReference Include="Pkcs11Interop" Version="5.1.2" />
   </ItemGroup>
 
-  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+  <PropertyGroup>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+  <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
