@@ -9,8 +9,8 @@
     <Authors>AktivCo</Authors>
     <Description>Managed .NET wrapper for unmanaged Rutoken PKCS#11 libraries</Description>
     <Copyright>Copyright (c) 2017-2021 The RutokenPkcs11Interop Project</Copyright>
-    <PackageProjectUrl>https://github.com/lo1ol/RutokenPkcs11Interop</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/lo1ol/RutokenPkcs11Interop.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/aktivco/RutokenPkcs11Interop</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/aktivco/RutokenPkcs11Interop.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>pkcs pkcs11 security crypto cryptography smartcard hsm rutoken aktiv</PackageTags>
     <Company />
