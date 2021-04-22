@@ -7,6 +7,9 @@ using Net.Pkcs11Interop.Common;
 using Net.RutokenPkcs11Interop.Common;
 
 using Net.RutokenPkcs11Interop.HighLevelAPI;
+using Net.Pkcs11Interop.HighLevelAPI;
+
+using LLA = Net.Pkcs11Interop.LowLevelAPI81;
 
 using NativeULong = System.UInt64;
 
@@ -105,6 +108,20 @@ namespace Net.RutokenPkcs11Interop.HighLevelAPI81
 
             return driveSize;
         }
+        private void UpdateSlotId(string serial)
+        {
+            NativeULong slotCount = 0;
+            (_pkcs11Library).C_GetSlotList(true, null, ref slotCount);
+            var slotList = new NativeULong[slotCount];
+            (_pkcs11Library).C_GetSlotList(true, slotList, ref slotCount);
+
+            foreach (NativeULong slotId in slotList)
+            {
+                var slot = Factories.SlotFactory.Create(Factories, _pkcs11Library, slotId);
+                if (slot.GetTokenInfo().SerialNumber == serial)
+                    _slotId = slotId;
+            }
+        }
 
         public void FormatDrive(CKU userType,
             string pin, IEnumerable<IVolumeFormatInfoExtended> initParams)
@@ -123,10 +140,12 @@ namespace Net.RutokenPkcs11Interop.HighLevelAPI81
                 formatParams.Add(((VolumeFormatInfoExtended) initParam).CkVolumeFormatInfoExtended);
             }
 
+            string serial = GetTokenInfo().SerialNumber;
             CKR rv = ((LowLevelAPI81.RutokenPkcs11Library)_pkcs11Library).C_EX_FormatDrive(_slotId, (NativeULong)userType,
                 pinArray, formatParams.ToArray());
             if (rv != CKR.CKR_OK)
                 throw new Pkcs11Exception("C_EX_FormatDrive", rv);
+            UpdateSlotId(serial);
         }
 
         public ICollection<IVolumeInfoExtended> GetVolumesInfo()
@@ -158,11 +177,13 @@ namespace Net.RutokenPkcs11Interop.HighLevelAPI81
                 throw new ArgumentNullException(nameof(pin));
 
             byte[] pinArray = ConvertUtils.Utf8StringToBytes(pin);
-
+            string serial = GetTokenInfo().SerialNumber;
             CKR rv = ((LowLevelAPI81.RutokenPkcs11Library)_pkcs11Library).C_EX_ChangeVolumeAttributes(_slotId, (NativeULong)userType,
                 pinArray,(NativeULong)(volumeId), newAccessMode, permanent);
+
             if (rv != CKR.CKR_OK)
                 throw new Pkcs11Exception("C_EX_ChangeVolumeAttributes", rv);
+            UpdateSlotId(serial);
         }
 
         public void SetActivationPassword(byte[] password)
