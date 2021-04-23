@@ -36,7 +36,6 @@ del /Q *.nupkg || goto :error
 
 @rem Sign all assemblies using SHA256withRSA algorithm
 %SIGNTOOL% sign /sha1 %CERTHASH% /fd sha256 /tr %TSAURL% /td sha256 /d %LIBNAME% /du %LIBURL% ^
-lib\net20\RutokenPkcs11Interop.dll ^
 lib\net40\RutokenPkcs11Interop.dll ^
 lib\net45\RutokenPkcs11Interop.dll ^
 lib\netstandard2.0\RutokenPkcs11Interop.dll || goto :error
