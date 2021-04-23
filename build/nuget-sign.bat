@@ -1,17 +1,20 @@
 @setlocal
 
+if "%~1"=="" goto :error_show_usage
+if "%~2"=="" goto :error_show_usage
+
 @rem Define paths to necessary directories
 set workingdir=%~dp0
 set inputdir=%workingdir%nuget-unsigned
 set outputdir=%workingdir%nuget-signed
 
 @rem Define paths to necessary tools
-set NUGET=c:\nuget\nuget.exe 
+set NUGET=%1 
 set SEVENZIP="c:\Program Files\7-Zip\7z.exe"
 set SIGNTOOL="C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
 
 @rem Define signing options
-@rem set CERTHASH=
+set CERTHASH=%2
 set TSAURL=http://time.certum.pl/
 set LIBNAME=RutokenPkcs11Interop
 set LIBURL=https://github.com/AktivCo/RutokenPkcs11Interop
@@ -52,6 +55,10 @@ del /Q *.txt || goto :error
 @echo *** SIGN SUCCESSFUL ***
 @endlocal
 @exit /b 0
+
+:error_show_usage
+@echo Usage:
+@echo nuget-sign.bat NUGET_PATH CERT_HASH
 
 :error
 @echo *** SIGN FAILED ***
