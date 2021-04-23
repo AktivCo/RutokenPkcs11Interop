@@ -14,7 +14,7 @@ set SIGNTOOL="C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.
 @rem set CERTHASH=
 set TSAURL=http://time.certum.pl/
 set LIBNAME=RutokenPkcs11Interop
-set LIBURL=https://github.com/lo1ol/RutokenPkcs11Interop
+set LIBURL=https://github.com/AktivCo/RutokenPkcs11Interop
 
 @rem Clean output directory
 rmdir /S /Q %outputdir%
