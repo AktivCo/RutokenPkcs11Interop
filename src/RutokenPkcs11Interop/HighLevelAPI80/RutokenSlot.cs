@@ -115,11 +115,28 @@ namespace Net.RutokenPkcs11Interop.HighLevelAPI80
             var slotList = new NativeULong[slotCount];
             (_pkcs11Library).C_GetSlotList(true, slotList, ref slotCount);
 
+            var slotUpdated = false;
+
             foreach (NativeULong slotId in slotList)
             {
                 var slot = Factories.SlotFactory.Create(Factories, _pkcs11Library, slotId);
                 if (slot.GetTokenInfo().SerialNumber == serial)
+                {
                     _slotId = slotId;
+                    slotUpdated = true;
+                }
+            }
+
+            while (!slotUpdated) {
+                NativeULong slotId = 0;
+                (_pkcs11Library).C_WaitForSlotEvent(0, ref slotId, IntPtr.Zero);
+                var slot = Factories.SlotFactory.Create(Factories, _pkcs11Library, slotId);
+                if (slot.GetSlotInfo().SlotFlags.TokenPresent
+                        && slot.GetTokenInfo().SerialNumber == serial)
+                {
+                    _slotId = slotId;
+                    slotUpdated = true;
+                }
             }
         }
 
@@ -177,13 +194,17 @@ namespace Net.RutokenPkcs11Interop.HighLevelAPI80
                 throw new ArgumentNullException(nameof(pin));
 
             byte[] pinArray = ConvertUtils.Utf8StringToBytes(pin);
-            string serial = GetTokenInfo().SerialNumber;
+            string serial = null;
+            if (permanent == true)
+                serial = GetTokenInfo().SerialNumber;
+
             CKR rv = ((LowLevelAPI80.RutokenPkcs11Library)_pkcs11Library).C_EX_ChangeVolumeAttributes(_slotId, (NativeULong)userType,
                 pinArray,(NativeULong)(volumeId), newAccessMode, permanent);
 
             if (rv != CKR.CKR_OK)
                 throw new Pkcs11Exception("C_EX_ChangeVolumeAttributes", rv);
-            UpdateSlotId(serial);
+            if (permanent == true)
+                UpdateSlotId(serial);
         }
 
         public void SetActivationPassword(byte[] password)
