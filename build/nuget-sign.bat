@@ -49,7 +49,6 @@ copy %inputdir%\*.snupkg . || goto :error
 @rem Clean up
 rmdir /S /Q lib || goto :error
 del /Q *.nuspec || goto :error
-del /Q *.txt || goto :error
 
 @echo *** SIGN SUCCESSFUL ***
 @endlocal
