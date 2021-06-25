@@ -92,12 +92,6 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Pkcs11Interop, Version=5.1.1.0, Culture=neutral, PublicKeyToken=c10e9c2d8c006d2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pkcs11Interop.5.1.1\lib\netstandard2.0\Pkcs11Interop.dll</HintPath>
-    </Reference>
-    <Reference Include="RutokenPkcs11Interop, Version=5.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RutokenPkcs11Interop.5.1.1\lib\netstandard2.0\RutokenPkcs11Interop.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -110,7 +104,6 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\src\RutokenPkcs11Interop.Tests\HighLevelAPI\Helpers.cs">
@@ -335,13 +328,19 @@
     <Compile Include="Main.cs" />
     <Compile Include="UnitTestAppDelegate.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\RutokenPkcs11Interop\RutokenPkcs11Interop.csproj">
+      <Project>{131bed86-35f3-4d16-91d7-e6085ca1b1d1}</Project>
+      <Name>RutokenPkcs11Interop</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aktiv.RtPkcs11Ecp.Natives.iOS">
+      <Version>2.0.11</Version>
+    </PackageReference>
+    <PackageReference Include="Pkcs11Interop">
+      <Version>5.1.2</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
-  </Target>
-  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
-  <Import Project="..\packages\Aktiv.RtPkcs11Ecp.Natives.iOS.2.0.11\build\Aktiv.RtPkcs11Ecp.Natives.iOS.targets" Condition="Exists('..\packages\Aktiv.RtPkcs11Ecp.Natives.iOS.2.0.11\build\Aktiv.RtPkcs11Ecp.Natives.iOS.targets')" />
 </Project>
