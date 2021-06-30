@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>5.1.1</Version>
+    <Version>5.1.2</Version>
     <Authors>AktivCo</Authors>
     <Description>Managed .NET wrapper for unmanaged Rutoken PKCS#11 libraries</Description>
     <Copyright>Copyright (c) 2017-2021 The RutokenPkcs11Interop Project</Copyright>
