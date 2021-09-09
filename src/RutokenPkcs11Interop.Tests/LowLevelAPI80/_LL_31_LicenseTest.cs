@@ -14,8 +14,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_31_01_SetAndGetLicenseTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

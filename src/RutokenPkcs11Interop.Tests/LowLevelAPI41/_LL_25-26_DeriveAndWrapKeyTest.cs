@@ -17,8 +17,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI41
         [Test()]
         public void _LL_25_26_01_DeriveAndWrap_VKO_Gost3410_01_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -225,8 +224,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI41
         [Test()]
         public void _LL_25_26_02_DeriveAndWrap_VKO_Gost3410_12_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -413,8 +411,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI41
         [Test()]
         public void _LL_25_26_03_KegKexp15KuznechikTwisted_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

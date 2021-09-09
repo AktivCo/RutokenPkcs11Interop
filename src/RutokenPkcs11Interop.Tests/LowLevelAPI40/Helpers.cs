@@ -17,6 +17,15 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI40
     public static class Helpers
     {
         /// <summary>
+        /// Checks whether test can be executed on this platform
+        /// </summary>
+        public static void CheckPlatform()
+        {
+            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 0)
+                Assert.Inconclusive("Test cannot be executed on this platform");
+        }
+
+        /// <summary>
         /// Вспомогательная функция для поиска первого слота,
         /// содержащего установленный токен
         /// </summary>

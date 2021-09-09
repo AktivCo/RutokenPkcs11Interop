@@ -15,8 +15,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI81
         [Test()]
         public void _LL_34_01_ManageSlotTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -46,8 +45,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI81
         [Test()]
         public void _LL_34_02_ManageTokenTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

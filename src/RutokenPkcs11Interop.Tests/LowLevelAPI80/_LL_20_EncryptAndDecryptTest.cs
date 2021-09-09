@@ -22,8 +22,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_20_01_EncryptAndDecrypt_Gost28147_89_ECB_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -122,8 +121,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_20_02_EncryptAndDecrypt_Gost28147_89_Stream_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -288,8 +286,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_20_03_EncryptAndDecrypt_Gost28147_89_CBC_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -356,8 +353,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_20_04_EncryptAndDecrypt_RSA_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -463,8 +459,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_20_05_EncryptAndDecrypt_Kuznechik_ECB_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -563,8 +558,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_20_06_EncryptAndDecrypt_Magma_ECB_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -663,8 +657,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_20_07_EncryptAndDecrypt_Kuznechik_CTR_ACPKM_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -775,8 +768,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_20_08_EncryptAndDecrypt_Magma_CTR_ACPKM_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

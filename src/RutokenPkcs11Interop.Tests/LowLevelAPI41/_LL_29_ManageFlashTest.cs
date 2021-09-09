@@ -19,8 +19,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI41
         [Test()]
         public void _LL_29_01_FlashAvailabilityTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -61,8 +60,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI41
         [Test()]
         public void _LL_29_02_FlashWorkTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

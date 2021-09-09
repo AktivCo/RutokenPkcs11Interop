@@ -21,8 +21,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_30_01_SignJournalTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

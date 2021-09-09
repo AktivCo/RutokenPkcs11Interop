@@ -19,8 +19,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI81
         [Test()]
         public void _LL_09_01_BasicInitTokenAndPinTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -78,8 +77,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI81
         [Test()]
         public void _LL_09_02_ExtendedInitTokenAndPinTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -211,8 +209,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI81
         [Test()]
         public void _LL_09_03_LocalPinTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

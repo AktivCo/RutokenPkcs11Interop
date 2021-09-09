@@ -21,8 +21,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI40
         [Test()]
         public void _LL_21_01_SignAndVerify_Gost3410_01_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -131,8 +130,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI40
         [Test()]
         public void _LL_21_02_SignAndVerify_Gost3410_12_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -242,8 +240,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI40
         [Test()]
         public void _LL_21_03_SignAndVerify_RSA_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -354,8 +351,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI40
         [Test()]
         public void _LL_21_04_SignAndVerify_KuznechikMac_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -439,8 +435,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI40
         [Test()]
         public void _LL_21_05_SignAndVerify_MagmaMac_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

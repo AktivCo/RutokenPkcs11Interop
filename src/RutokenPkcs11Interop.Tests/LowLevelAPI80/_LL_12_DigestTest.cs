@@ -21,8 +21,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_12_01_Digest_SHA1_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -85,8 +84,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_12_02_Digest_Gost3411_12_512_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -152,8 +150,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_12_03_Digest_Gost3411_12_256_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -219,8 +216,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI80
         [Test()]
         public void _LL_12_04_Digest_Gost3411_94_Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

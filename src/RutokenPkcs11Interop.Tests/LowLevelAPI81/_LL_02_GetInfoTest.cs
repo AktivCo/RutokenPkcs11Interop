@@ -20,8 +20,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI81
         [Test()]
         public void _LL_02_01_BasicGetInfoTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

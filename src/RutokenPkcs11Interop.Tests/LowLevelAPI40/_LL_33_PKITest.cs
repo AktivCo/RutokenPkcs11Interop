@@ -16,8 +16,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI40
         [Test()]
         public void _LL_33_01_CreateCSR_PKCS10Test()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
@@ -124,8 +123,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI40
         [Test()]
         public void _LL_33_02_ImportCertificateTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 

@@ -15,8 +15,7 @@ namespace Net.RutokenPkcs11InteropTests.LowLevelAPI41
         [Test()]
         public void _LL_32_01_ActivationPasswordTest()
         {
-            if (Platform.NativeULongSize != 4 || Platform.StructPackingSize != 1)
-                Assert.Inconclusive("Test cannot be executed on this platform");
+            Helpers.CheckPlatform();
 
             CKR rv = CKR.CKR_OK;
 
