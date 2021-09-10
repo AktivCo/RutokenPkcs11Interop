@@ -10,7 +10,7 @@ namespace Net.RutokenPkcs11Interop
         /// <summary>
         /// Relative name or absolute path of unmanaged PKCS#11 library provided by smartcard or HSM vendor.
         /// </summary>
-        private static string Pkcs11LibraryPath
+        private static string Pkcs11LibraryName
         {
             get
             {
@@ -24,14 +24,25 @@ namespace Net.RutokenPkcs11Interop
                 }
                 else if (Platform.IsMacOsX)
                 {
-                    return "rtpkcs11ecp.framework/rtpkcs11ecp";
+                    // new version of pkcs11 is destributed like framework
+                    var framework = "rtpkcs11ecp.framework/rtpkcs11ecp";
+                    if (File.Exists(Path.Combine(Environment.SystemDirectory, framework)))
+                        return framework;
+
+                    // old version of pkcs11 is destributed like dylib
+                    var dylib = "librtpkcs11ecp.dylib";
+                    if (File.Exists(Path.Combine(Environment.SystemDirectory, dylib)))
+                        return dylib;
+
+                    // prefer frameworks
+                    return framework;
                 }
                 throw new InvalidOperationException("Native rutoken library path is not set");
             }
         }
 
         public static string RutokenEcpDllDefaultPath =>
-            Path.Combine(Environment.SystemDirectory, Pkcs11LibraryPath);
+            Path.Combine(Environment.SystemDirectory, Pkcs11LibraryName);
 
         public static bool OsLockingDefault => true;
 
