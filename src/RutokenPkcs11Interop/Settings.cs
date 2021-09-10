@@ -14,11 +14,6 @@ namespace Net.RutokenPkcs11Interop
         {
             get
             {
-#if __ANDROID__
-                return @"librtpkcs11ecp.so";
-#elif __IOS__
-                return string.Empty;
-#else
                 if (Platform.IsWindows)
                 {
                     return "rtpkcs11ecp.dll";
@@ -29,9 +24,8 @@ namespace Net.RutokenPkcs11Interop
                 }
                 else if (Platform.IsMacOsX)
                 {
-                    return "librtpkcs11ecp.dylib";
+                    return "rtpkcs11ecp.framework/rtpkcs11ecp";
                 }
-#endif
                 throw new InvalidOperationException("Native rutoken library path is not set");
             }
         }
